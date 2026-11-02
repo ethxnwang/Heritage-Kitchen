@@ -1,0 +1,243 @@
+<!--
+  Heritage Kitchen widget for Squarespace.
+
+  Paste this whole file into a Code Block (Edit page -> Add Block -> Code, set to HTML)
+  or into Settings -> Advanced -> Code Injection for a single page.
+  Set HK_API_BASE to wherever the backend is deployed.
+-->
+<div id="hk-app">
+  <form id="hk-form" autocomplete="off">
+    <h2 class="hk-title">Make it lighter, keep it yours</h2>
+    <p class="hk-sub">Tell us where your food comes from. We'll suggest healthier swaps that still taste like home.</p>
+
+    <div class="hk-row">
+      <label>Culture or heritage
+        <input name="culture" placeholder="e.g. Filipino-American, Punjabi, Cuban">
+      </label>
+      <label>Cuisine
+        <select name="cuisine" id="hk-cuisine"><option value="">Any / not sure</option></select>
+      </label>
+    </div>
+
+    <label>Dish
+      <input name="dish" placeholder="e.g. chicken adobo, jollof rice, lasagna">
+    </label>
+
+    <label>Ingredients you use (one per line, optional)
+      <textarea name="ingredients" rows="4" placeholder="pork belly&#10;soy sauce&#10;white rice"></textarea>
+    </label>
+
+    <fieldset class="hk-taste">
+      <legend>Your taste</legend>
+      <div class="hk-sliders"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Health goals</legend>
+      <div class="hk-checks" data-name="health_goals">
+        <label><input type="checkbox" value="lower_sodium"> Lower sodium</label>
+        <label><input type="checkbox" value="heart_health"> Heart health</label>
+        <label><input type="checkbox" value="weight_management"> Weight management</label>
+        <label><input type="checkbox" value="blood_sugar"> Blood sugar</label>
+        <label><input type="checkbox" value="high_protein"> More protein</label>
+        <label><input type="checkbox" value="more_fiber"> More fiber</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Dietary needs</legend>
+      <div class="hk-checks" data-name="restrictions">
+        <label><input type="checkbox" value="vegetarian"> Vegetarian</label>
+        <label><input type="checkbox" value="vegan"> Vegan</label>
+        <label><input type="checkbox" value="pescatarian"> Pescatarian</label>
+        <label><input type="checkbox" value="dairy_free"> Dairy-free</label>
+        <label><input type="checkbox" value="gluten_free"> Gluten-free</label>
+        <label><input type="checkbox" value="halal"> Halal</label>
+        <label><input type="checkbox" value="kosher"> Kosher</label>
+        <label><input type="checkbox" value="nut_free"> Nut-free</label>
+      </div>
+    </fieldset>
+
+    <button type="submit" id="hk-submit">Find swaps</button>
+    <p class="hk-error" id="hk-error" hidden></p>
+  </form>
+
+  <section id="hk-results" hidden></section>
+</div>
+
+<style>
+  #hk-app { --hk-accent: #a4472b; --hk-ink: #2a2420; --hk-muted: #6f655d; --hk-line: #e4dcd3; --hk-card: #fbf8f4;
+    max-width: 760px; margin: 0 auto; color: var(--hk-ink); font: inherit; }
+  #hk-app * { box-sizing: border-box; }
+  #hk-app .hk-title { margin: 0 0 .25em; }
+  #hk-app .hk-sub { color: var(--hk-muted); margin: 0 0 1.5em; }
+  #hk-app label { display: block; margin-bottom: 1em; font-weight: 600; font-size: .95em; }
+  #hk-app input:not([type=checkbox]):not([type=range]), #hk-app select, #hk-app textarea {
+    display: block; width: 100%; margin-top: .35em; padding: .6em .7em; font: inherit; font-weight: 400;
+    border: 1px solid var(--hk-line); border-radius: 6px; background: #fff; }
+  #hk-app .hk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+  #hk-app fieldset { border: 1px solid var(--hk-line); border-radius: 8px; padding: .8em 1em .4em; margin: 0 0 1em; }
+  #hk-app legend { font-weight: 700; padding: 0 .3em; }
+  #hk-app .hk-checks { display: flex; flex-wrap: wrap; gap: .25em 1.2em; }
+  #hk-app .hk-checks label { font-weight: 400; display: flex; align-items: center; gap: .4em; margin: 0 0 .6em; }
+  #hk-app .hk-sliders { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3em 1.2em; }
+  #hk-app .hk-sliders label { font-weight: 400; margin-bottom: .6em; }
+  #hk-app .hk-sliders input { width: 100%; }
+  #hk-app button { background: var(--hk-accent); color: #fff; border: 0; border-radius: 6px; padding: .8em 1.6em;
+    font: inherit; font-weight: 700; cursor: pointer; }
+  #hk-app button[disabled] { opacity: .6; cursor: wait; }
+  #hk-app .hk-error { color: #b00020; }
+  #hk-results { margin-top: 2em; }
+  #hk-results .hk-summary { font-size: 1.05em; }
+  #hk-results .hk-card { background: var(--hk-card); border: 1px solid var(--hk-line); border-radius: 8px;
+    padding: 1em 1.2em; margin-bottom: 1em; }
+  #hk-results .hk-swap { font-size: 1.1em; font-weight: 700; margin: 0 0 .4em; }
+  #hk-results .hk-swap span { color: var(--hk-accent); }
+  #hk-results .hk-meta { color: var(--hk-muted); font-size: .9em; margin: .3em 0; }
+  #hk-results .hk-bars { display: grid; grid-template-columns: max-content 1fr max-content; gap: .2em .6em;
+    font-size: .85em; margin-top: .6em; align-items: center; }
+  #hk-results .hk-bar { height: 6px; border-radius: 3px; background: var(--hk-line); position: relative; }
+  #hk-results .hk-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 3px; background: var(--hk-accent); }
+  #hk-results ol, #hk-results ul { padding-left: 1.3em; }
+  @media (max-width: 600px) {
+    #hk-app .hk-row, #hk-app .hk-sliders { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+(function () {
+  var HK_API_BASE = "https://heritage-kitchen-api.onrender.com";
+
+  var form = document.getElementById("hk-form");
+  var results = document.getElementById("hk-results");
+  var errorBox = document.getElementById("hk-error");
+  var submit = document.getElementById("hk-submit");
+  var axes = [["spicy", 5], ["sweet", 5], ["salty", 5], ["sour", 5], ["umami", 5], ["bitter", 3]];
+
+  var sliders = form.querySelector(".hk-sliders");
+  axes.forEach(function (a) {
+    var label = document.createElement("label");
+    label.innerHTML = a[0].charAt(0).toUpperCase() + a[0].slice(1) +
+      ' <output>' + a[1] + '</output><input type="range" min="0" max="10" step="1" name="taste_' + a[0] + '" value="' + a[1] + '">';
+    var out = label.querySelector("output");
+    label.querySelector("input").addEventListener("input", function (e) { out.textContent = e.target.value; });
+    sliders.appendChild(label);
+  });
+
+  fetch(HK_API_BASE + "/api/cuisines")
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (list) {
+      var select = document.getElementById("hk-cuisine");
+      list.forEach(function (c) {
+        var opt = document.createElement("option");
+        opt.value = c.key;
+        opt.textContent = c.name;
+        select.appendChild(opt);
+      });
+    })
+    .catch(function () {});
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+
+  function checked(name) {
+    return Array.prototype.map.call(
+      form.querySelectorAll('[data-name="' + name + '"] input:checked'),
+      function (el) { return el.value; }
+    );
+  }
+
+  function payload() {
+    var fd = new FormData(form);
+    var taste = {};
+    axes.forEach(function (a) { taste[a[0]] = Number(fd.get("taste_" + a[0])); });
+    return {
+      culture: fd.get("culture") || null,
+      cuisine: fd.get("cuisine") || null,
+      dish: fd.get("dish") || null,
+      ingredients: String(fd.get("ingredients") || "").split("\n").map(function (s) { return s.trim(); }).filter(Boolean),
+      taste: taste,
+      health_goals: checked("health_goals"),
+      restrictions: checked("restrictions"),
+      include_recipe: true
+    };
+  }
+
+  function nutritionBars(n) {
+    if (!n) return "";
+    var rows = [["kcal", "Calories", ""], ["sat_fat_g", "Sat. fat", " g"], ["sodium_mg", "Sodium", " mg"], ["sugar_g", "Sugar", " g"], ["fiber_g", "Fiber", " g"]];
+    var html = '<div class="hk-bars">';
+    rows.forEach(function (r) {
+      var a = n.original[r[0]], b = n.substitute[r[0]];
+      var max = Math.max(a, b) || 1;
+      html += "<span>" + r[1] + "</span>" +
+        '<span class="hk-bar"><i style="width:' + Math.round((b / max) * 100) + '%"></i></span>' +
+        "<span>" + esc(a) + " &rarr; " + esc(b) + r[2] + "</span>";
+    });
+    return html + '</div><p class="hk-meta">' + esc(n.basis) + "</p>";
+  }
+
+  function render(data) {
+    var html = '<p class="hk-summary">' + esc(data.summary) + "</p>";
+    data.substitutions.forEach(function (s) {
+      html += '<div class="hk-card">' +
+        '<p class="hk-swap">' + esc(s.original) + " &rarr; <span>" + esc(s.substitute) + "</span></p>" +
+        "<p>" + esc(s.reason) + "</p>" +
+        '<p class="hk-meta"><strong>How much:</strong> ' + esc(s.ratio) + "</p>" +
+        '<p class="hk-meta"><strong>Flavor:</strong> ' + esc(s.flavor_note) + "</p>" +
+        '<p class="hk-meta"><strong>Tradition:</strong> ' + esc(s.cultural_note) + "</p>" +
+        nutritionBars(s.nutrition) +
+        "</div>";
+    });
+    var r = data.adapted_recipe;
+    if (r) {
+      html += '<div class="hk-card"><h3>' + esc(r.title) + "</h3>" +
+        '<p class="hk-meta">Serves ' + esc(r.servings) + "</p><ul>" +
+        r.ingredients.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul><ol>" +
+        r.steps.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol></div>";
+    }
+    if (data.tips && data.tips.length) {
+      html += "<h3>Tips</h3><ul>" + data.tips.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>";
+    }
+    results.innerHTML = html;
+    results.hidden = false;
+    results.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+    var body = payload();
+    if (!body.culture && !body.cuisine && !body.dish && !body.ingredients.length) {
+      errorBox.textContent = "Add a culture, cuisine, dish, or a few ingredients.";
+      errorBox.hidden = false;
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = "Cooking up ideas…";
+    fetch(HK_API_BASE + "/api/substitutions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    })
+      .then(function (r) {
+        return r.json().then(function (j) {
+          if (!r.ok) throw new Error(typeof j.detail === "string" ? j.detail : "Something went wrong.");
+          return j;
+        });
+      })
+      .then(render)
+      .catch(function (err) {
+        errorBox.textContent = err.message || "Couldn't reach the kitchen. Try again shortly.";
+        errorBox.hidden = false;
+      })
+      .finally(function () {
+        submit.disabled = false;
+        submit.textContent = "Find swaps";
+      });
+  });
+})();
+</script>

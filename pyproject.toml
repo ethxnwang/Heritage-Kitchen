@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heritage-kitchen"
+version = "1.0.0"
+description = "Backend for Heritage Kitchen: healthier ingredient substitutions grounded in a cook's cultural background."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ethan Wang" }]
+dependencies = [
+  "anthropic>=0.125.0",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.29",
+  "numpy>=1.26",
+  "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.27"]
+
+[project.scripts]
+heritage-kitchen = "heritage_kitchen.__main__:main"
+
+[tool.setuptools]
+packages = ["heritage_kitchen"]
+
+[tool.setuptools.package-data]
+heritage_kitchen = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

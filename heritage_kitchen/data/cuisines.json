@@ -1,0 +1,311 @@
+{
+  "flavor_axes": ["spicy", "sweet", "salty", "sour", "umami", "bitter"],
+  "cuisines": {
+    "mexican": {
+      "name": "Mexican",
+      "region": "Latin America",
+      "flavor": [0.8, 0.3, 0.5, 0.6, 0.5, 0.2],
+      "staples": ["corn_tortilla", "black_beans", "lime_juice", "avocado_oil", "chicken_breast", "tomato"],
+      "heavy_ingredients": ["lard", "flour_tortilla", "chorizo", "sour_cream", "cheddar_cheese", "white_rice"],
+      "dishes": ["enchiladas", "tamales", "carnitas", "chiles rellenos", "pozole", "tacos al pastor", "quesadillas", "mole poblano"],
+      "cultures": ["mexican", "mexican-american", "chicano", "oaxacan", "yucatecan"]
+    },
+    "italian": {
+      "name": "Italian",
+      "region": "Southern Europe",
+      "flavor": [0.2, 0.3, 0.6, 0.4, 0.8, 0.3],
+      "staples": ["olive_oil", "tomato", "whole_wheat_pasta", "chickpeas", "part_skim_mozzarella", "mushrooms"],
+      "heavy_ingredients": ["white_pasta", "heavy_cream", "butter", "pork_sausage", "mozzarella", "white_bread"],
+      "dishes": ["lasagna", "fettuccine alfredo", "carbonara", "chicken parmesan", "risotto", "eggplant parmigiana", "gnocchi"],
+      "cultures": ["italian", "italian-american", "sicilian", "neapolitan", "tuscan"]
+    },
+    "cantonese": {
+      "name": "Cantonese",
+      "region": "East Asia",
+      "flavor": [0.2, 0.5, 0.6, 0.2, 0.9, 0.1],
+      "staples": ["brown_rice", "tofu_firm", "mushrooms", "low_sodium_soy_sauce", "bok_choy", "shrimp"],
+      "heavy_ingredients": ["white_rice", "soy_sauce", "oyster_sauce", "pork_belly", "vegetable_oil", "egg_noodles"],
+      "dishes": ["char siu", "sweet and sour pork", "chow mein", "fried rice", "dim sum", "lo mein", "wonton soup"],
+      "cultures": ["chinese", "cantonese", "hong kong", "chinese-american", "taishanese"]
+    },
+    "sichuan": {
+      "name": "Sichuan",
+      "region": "East Asia",
+      "flavor": [1.0, 0.3, 0.7, 0.4, 0.8, 0.3],
+      "staples": ["tofu_firm", "mushrooms", "brown_rice", "low_sodium_soy_sauce", "bok_choy", "chicken_breast"],
+      "heavy_ingredients": ["vegetable_oil", "pork_belly", "soy_sauce", "white_rice", "ground_beef"],
+      "dishes": ["mapo tofu", "kung pao chicken", "dan dan noodles", "twice cooked pork", "hot pot", "dry fried green beans"],
+      "cultures": ["sichuanese", "szechuan", "chongqing", "hunanese"]
+    },
+    "japanese": {
+      "name": "Japanese",
+      "region": "East Asia",
+      "flavor": [0.1, 0.4, 0.7, 0.3, 1.0, 0.2],
+      "staples": ["brown_rice", "tofu_firm", "buckwheat_soba", "salmon", "mushrooms", "low_sodium_soy_sauce"],
+      "heavy_ingredients": ["white_rice", "soy_sauce", "mayonnaise", "pork_belly", "instant_ramen", "white_sugar"],
+      "dishes": ["ramen", "tonkatsu", "teriyaki chicken", "sushi", "katsu curry", "okonomiyaki", "tempura", "gyudon"],
+      "cultures": ["japanese", "japanese-american", "okinawan", "nikkei"]
+    },
+    "korean": {
+      "name": "Korean",
+      "region": "East Asia",
+      "flavor": [0.8, 0.5, 0.7, 0.6, 0.9, 0.2],
+      "staples": ["brown_rice", "tofu_firm", "mushrooms", "low_sodium_soy_sauce", "barley", "chicken_breast"],
+      "heavy_ingredients": ["white_rice", "soy_sauce", "pork_belly", "white_sugar", "instant_ramen", "beef_ribeye"],
+      "dishes": ["bulgogi", "bibimbap", "kimchi jjigae", "samgyeopsal", "japchae", "korean fried chicken", "tteokbokki", "galbi"],
+      "cultures": ["korean", "korean-american"]
+    },
+    "north_indian": {
+      "name": "North Indian",
+      "region": "South Asia",
+      "flavor": [0.8, 0.3, 0.5, 0.4, 0.5, 0.3],
+      "staples": ["lentils", "chickpeas", "greek_yogurt", "whole_wheat_flour", "brown_rice", "cauliflower"],
+      "heavy_ingredients": ["ghee", "heavy_cream", "paneer", "white_rice", "all_purpose_flour", "butter"],
+      "dishes": ["butter chicken", "palak paneer", "chole bhature", "biryani", "dal makhani", "naan", "tikka masala", "aloo paratha"],
+      "cultures": ["indian", "punjabi", "north indian", "indian-american", "gujarati", "rajasthani"]
+    },
+    "south_indian": {
+      "name": "South Indian",
+      "region": "South Asia",
+      "flavor": [0.9, 0.2, 0.5, 0.6, 0.4, 0.4],
+      "staples": ["lentils", "millet", "brown_rice", "light_coconut_milk", "chickpeas", "greek_yogurt"],
+      "heavy_ingredients": ["coconut_milk", "white_rice", "ghee", "vegetable_oil", "white_potato"],
+      "dishes": ["dosa", "idli", "sambar", "avial", "chicken chettinad", "pongal", "uttapam", "rasam"],
+      "cultures": ["tamil", "telugu", "kannadiga", "malayali", "keralite", "south indian", "sri lankan"]
+    },
+    "pakistani": {
+      "name": "Pakistani",
+      "region": "South Asia",
+      "flavor": [0.8, 0.2, 0.6, 0.3, 0.6, 0.3],
+      "staples": ["lentils", "chickpeas", "whole_wheat_flour", "greek_yogurt", "chicken_breast", "brown_rice"],
+      "heavy_ingredients": ["ghee", "beef_ribeye", "white_rice", "all_purpose_flour", "vegetable_oil"],
+      "dishes": ["nihari", "haleem", "karahi", "seekh kebab", "pulao", "paya", "chapli kebab"],
+      "cultures": ["pakistani", "pakistani-american", "sindhi", "pashtun"]
+    },
+    "thai": {
+      "name": "Thai",
+      "region": "Southeast Asia",
+      "flavor": [0.9, 0.6, 0.6, 0.7, 0.8, 0.1],
+      "staples": ["light_coconut_milk", "lime_juice", "tofu_firm", "shrimp", "brown_rice", "mushrooms"],
+      "heavy_ingredients": ["coconut_milk", "fish_sauce", "white_sugar", "white_rice", "vegetable_oil"],
+      "dishes": ["pad thai", "green curry", "tom yum", "massaman curry", "pad see ew", "larb", "khao soi", "tom kha gai"],
+      "cultures": ["thai", "thai-american", "isan", "lao", "laotian"]
+    },
+    "vietnamese": {
+      "name": "Vietnamese",
+      "region": "Southeast Asia",
+      "flavor": [0.5, 0.5, 0.6, 0.6, 0.8, 0.2],
+      "staples": ["lime_juice", "shrimp", "tofu_firm", "chicken_breast", "brown_rice", "mushrooms"],
+      "heavy_ingredients": ["fish_sauce", "white_sugar", "pork_belly", "white_rice", "white_bread"],
+      "dishes": ["pho", "banh mi", "bun cha", "com tam", "thit kho", "goi cuon", "bun bo hue", "banh xeo"],
+      "cultures": ["vietnamese", "vietnamese-american"]
+    },
+    "filipino": {
+      "name": "Filipino",
+      "region": "Southeast Asia",
+      "flavor": [0.3, 0.6, 0.7, 0.8, 0.7, 0.2],
+      "staples": ["chicken_breast", "brown_rice", "mushrooms", "low_sodium_soy_sauce", "tofu_firm", "shrimp"],
+      "heavy_ingredients": ["pork_belly", "soy_sauce", "white_rice", "white_sugar", "condensed_milk", "vegetable_oil"],
+      "dishes": ["adobo", "sinigang", "lechon kawali", "pancit", "kare kare", "sisig", "lumpia", "leche flan"],
+      "cultures": ["filipino", "filipino-american", "pinoy", "tagalog", "ilocano"]
+    },
+    "indonesian": {
+      "name": "Indonesian",
+      "region": "Southeast Asia",
+      "flavor": [0.8, 0.6, 0.6, 0.4, 0.8, 0.2],
+      "staples": ["tempeh", "tofu_firm", "brown_rice", "light_coconut_milk", "chicken_breast", "shrimp"],
+      "heavy_ingredients": ["coconut_milk", "palm_oil", "white_rice", "white_sugar", "soy_sauce"],
+      "dishes": ["nasi goreng", "rendang", "satay", "gado gado", "soto ayam", "mie goreng", "sambal goreng"],
+      "cultures": ["indonesian", "javanese", "balinese", "sundanese", "minang"]
+    },
+    "malaysian": {
+      "name": "Malaysian",
+      "region": "Southeast Asia",
+      "flavor": [0.8, 0.5, 0.6, 0.5, 0.8, 0.2],
+      "staples": ["tofu_firm", "shrimp", "brown_rice", "light_coconut_milk", "chicken_breast", "tempeh"],
+      "heavy_ingredients": ["coconut_milk", "palm_oil", "white_rice", "egg_noodles", "white_sugar"],
+      "dishes": ["nasi lemak", "laksa", "char kway teow", "roti canai", "beef rendang", "mee goreng", "hainanese chicken rice"],
+      "cultures": ["malaysian", "malay", "singaporean", "peranakan", "nyonya"]
+    },
+    "french": {
+      "name": "French",
+      "region": "Western Europe",
+      "flavor": [0.1, 0.4, 0.6, 0.4, 0.7, 0.3],
+      "staples": ["olive_oil", "mushrooms", "lentils", "greek_yogurt", "chicken_breast", "salmon"],
+      "heavy_ingredients": ["butter", "heavy_cream", "white_bread", "all_purpose_flour", "cheddar_cheese", "white_sugar"],
+      "dishes": ["coq au vin", "beef bourguignon", "quiche lorraine", "croque monsieur", "gratin dauphinois", "ratatouille", "crepes"],
+      "cultures": ["french", "parisian", "provencal", "breton", "quebecois", "french canadian"]
+    },
+    "spanish": {
+      "name": "Spanish",
+      "region": "Southern Europe",
+      "flavor": [0.4, 0.3, 0.6, 0.4, 0.7, 0.2],
+      "staples": ["olive_oil", "chickpeas", "shrimp", "tomato", "brown_rice", "smoked_paprika"],
+      "heavy_ingredients": ["chorizo", "white_rice", "white_bread", "white_potato", "pork_sausage"],
+      "dishes": ["paella", "tortilla espanola", "patatas bravas", "croquetas", "fabada", "gazpacho", "churros"],
+      "cultures": ["spanish", "catalan", "basque", "andalusian", "galician"]
+    },
+    "greek": {
+      "name": "Greek",
+      "region": "Mediterranean",
+      "flavor": [0.2, 0.3, 0.6, 0.6, 0.5, 0.3],
+      "staples": ["olive_oil", "greek_yogurt", "chickpeas", "lentils", "feta", "lime_juice"],
+      "heavy_ingredients": ["butter", "white_bread", "ground_beef", "white_potato", "all_purpose_flour"],
+      "dishes": ["moussaka", "spanakopita", "souvlaki", "gyros", "pastitsio", "dolmades", "avgolemono"],
+      "cultures": ["greek", "greek-american", "cypriot", "hellenic"]
+    },
+    "turkish": {
+      "name": "Turkish",
+      "region": "Mediterranean",
+      "flavor": [0.5, 0.4, 0.6, 0.5, 0.6, 0.3],
+      "staples": ["bulgur", "lentils", "greek_yogurt", "olive_oil", "chickpeas", "eggplant"],
+      "heavy_ingredients": ["butter", "ground_beef", "white_bread", "white_sugar", "white_rice"],
+      "dishes": ["kebab", "lahmacun", "manti", "pide", "iskender", "imam bayildi", "baklava", "menemen"],
+      "cultures": ["turkish", "anatolian", "turkish-american"]
+    },
+    "lebanese": {
+      "name": "Lebanese",
+      "region": "Middle East",
+      "flavor": [0.3, 0.3, 0.5, 0.8, 0.5, 0.4],
+      "staples": ["chickpeas", "bulgur", "olive_oil", "lime_juice", "lentils", "greek_yogurt"],
+      "heavy_ingredients": ["white_bread", "ground_beef", "vegetable_oil", "butter", "white_rice"],
+      "dishes": ["falafel", "kibbeh", "shawarma", "fattoush", "mujaddara", "manakish", "tabbouleh", "kafta"],
+      "cultures": ["lebanese", "syrian", "levantine", "palestinian", "jordanian", "arab"]
+    },
+    "persian": {
+      "name": "Persian",
+      "region": "Middle East",
+      "flavor": [0.2, 0.5, 0.5, 0.7, 0.5, 0.3],
+      "staples": ["lentils", "greek_yogurt", "chickpeas", "olive_oil", "brown_rice", "chicken_breast"],
+      "heavy_ingredients": ["white_rice", "butter", "vegetable_oil", "beef_ribeye", "white_sugar"],
+      "dishes": ["ghormeh sabzi", "tahdig", "fesenjan", "koobideh", "zereshk polo", "ash reshteh", "kuku sabzi"],
+      "cultures": ["persian", "iranian", "iranian-american", "afghan"]
+    },
+    "moroccan": {
+      "name": "Moroccan",
+      "region": "North Africa",
+      "flavor": [0.5, 0.6, 0.5, 0.5, 0.5, 0.2],
+      "staples": ["chickpeas", "lentils", "olive_oil", "bulgur", "chicken_breast", "sweet_potato"],
+      "heavy_ingredients": ["white_couscous", "butter", "white_sugar", "beef_ribeye", "white_bread"],
+      "dishes": ["tagine", "couscous royale", "harira", "pastilla", "zaalouk", "mechoui", "rfissa"],
+      "cultures": ["moroccan", "algerian", "tunisian", "maghrebi", "amazigh", "berber"]
+    },
+    "ethiopian": {
+      "name": "Ethiopian",
+      "region": "East Africa",
+      "flavor": [0.9, 0.2, 0.5, 0.5, 0.5, 0.3],
+      "staples": ["teff", "lentils", "chickpeas", "olive_oil", "chicken_breast", "cauliflower"],
+      "heavy_ingredients": ["butter", "all_purpose_flour", "beef_ribeye", "vegetable_oil"],
+      "dishes": ["injera", "doro wat", "misir wat", "shiro", "tibs", "kitfo", "gomen"],
+      "cultures": ["ethiopian", "eritrean", "habesha", "amhara", "tigrayan", "oromo"]
+    },
+    "west_african": {
+      "name": "West African",
+      "region": "West Africa",
+      "flavor": [0.9, 0.3, 0.6, 0.3, 0.7, 0.3],
+      "staples": ["black_beans", "sweet_potato", "chicken_breast", "olive_oil", "millet", "brown_rice"],
+      "heavy_ingredients": ["palm_oil", "white_rice", "beef_ribeye", "vegetable_oil", "plantain_fried"],
+      "dishes": ["jollof rice", "egusi soup", "suya", "fufu", "waakye", "peanut stew", "moi moi", "kelewele"],
+      "cultures": ["nigerian", "ghanaian", "senegalese", "yoruba", "igbo", "west african", "ivorian", "liberian"]
+    },
+    "jamaican": {
+      "name": "Jamaican",
+      "region": "Caribbean",
+      "flavor": [0.9, 0.5, 0.6, 0.5, 0.5, 0.2],
+      "staples": ["black_beans", "chicken_breast", "sweet_potato", "brown_rice", "light_coconut_milk", "lime_juice"],
+      "heavy_ingredients": ["coconut_milk", "white_rice", "vegetable_oil", "all_purpose_flour", "plantain_fried"],
+      "dishes": ["jerk chicken", "oxtail stew", "curry goat", "rice and peas", "ackee and saltfish", "beef patty", "festival"],
+      "cultures": ["jamaican", "caribbean", "trinidadian", "west indian", "barbadian", "guyanese"]
+    },
+    "cuban": {
+      "name": "Cuban",
+      "region": "Caribbean",
+      "flavor": [0.2, 0.4, 0.6, 0.6, 0.6, 0.2],
+      "staples": ["black_beans", "lime_juice", "olive_oil", "chicken_breast", "brown_rice", "sweet_potato"],
+      "heavy_ingredients": ["lard", "white_rice", "pork_belly", "plantain_fried", "white_bread"],
+      "dishes": ["ropa vieja", "picadillo", "lechon asado", "cuban sandwich", "moros y cristianos", "arroz con pollo", "tostones"],
+      "cultures": ["cuban", "cuban-american"]
+    },
+    "puerto_rican": {
+      "name": "Puerto Rican",
+      "region": "Caribbean",
+      "flavor": [0.3, 0.4, 0.7, 0.5, 0.6, 0.2],
+      "staples": ["black_beans", "chicken_breast", "olive_oil", "brown_rice", "sweet_potato", "lime_juice"],
+      "heavy_ingredients": ["lard", "white_rice", "pork_belly", "plantain_fried", "vegetable_oil"],
+      "dishes": ["mofongo", "arroz con gandules", "pernil", "pasteles", "alcapurrias", "tostones", "pastelon"],
+      "cultures": ["puerto rican", "boricua", "nuyorican", "dominican"]
+    },
+    "brazilian": {
+      "name": "Brazilian",
+      "region": "Latin America",
+      "flavor": [0.3, 0.5, 0.6, 0.4, 0.6, 0.2],
+      "staples": ["black_beans", "brown_rice", "chicken_breast", "olive_oil", "sweet_potato", "lime_juice"],
+      "heavy_ingredients": ["pork_sausage", "white_rice", "beef_ribeye", "condensed_milk", "bacon"],
+      "dishes": ["feijoada", "moqueca", "pao de queijo", "coxinha", "picanha", "brigadeiro", "acaraje"],
+      "cultures": ["brazilian", "brazilian-american", "bahian", "carioca", "paulista"]
+    },
+    "peruvian": {
+      "name": "Peruvian",
+      "region": "Latin America",
+      "flavor": [0.7, 0.3, 0.5, 0.8, 0.6, 0.2],
+      "staples": ["quinoa", "sweet_potato", "lime_juice", "chicken_breast", "salmon", "black_beans"],
+      "heavy_ingredients": ["white_potato", "white_rice", "vegetable_oil", "heavy_cream", "mayonnaise"],
+      "dishes": ["ceviche", "lomo saltado", "aji de gallina", "causa", "anticuchos", "pollo a la brasa", "papa a la huancaina"],
+      "cultures": ["peruvian", "andean", "bolivian", "ecuadorian"]
+    },
+    "soul_food": {
+      "name": "Soul Food",
+      "region": "North America",
+      "flavor": [0.4, 0.5, 0.7, 0.3, 0.6, 0.3],
+      "staples": ["sweet_potato", "black_beans", "chicken_breast", "olive_oil", "collard_greens", "turkey_ground"],
+      "heavy_ingredients": ["lard", "bacon", "butter", "all_purpose_flour", "cheddar_cheese", "white_sugar"],
+      "dishes": ["fried chicken", "mac and cheese", "collard greens", "cornbread", "candied yams", "shrimp and grits", "biscuits and gravy"],
+      "cultures": ["african american", "black american", "southern", "soul food", "gullah"]
+    },
+    "cajun_creole": {
+      "name": "Cajun & Creole",
+      "region": "North America",
+      "flavor": [0.8, 0.2, 0.7, 0.3, 0.7, 0.3],
+      "staples": ["shrimp", "brown_rice", "chicken_breast", "black_beans", "olive_oil", "smoked_paprika"],
+      "heavy_ingredients": ["pork_sausage", "butter", "all_purpose_flour", "white_rice", "heavy_cream"],
+      "dishes": ["gumbo", "jambalaya", "etouffee", "red beans and rice", "po boy", "dirty rice", "boudin"],
+      "cultures": ["cajun", "creole", "louisiana", "new orleans"]
+    },
+    "german": {
+      "name": "German",
+      "region": "Central Europe",
+      "flavor": [0.1, 0.4, 0.7, 0.5, 0.6, 0.4],
+      "staples": ["whole_wheat_flour", "barley", "chicken_breast", "lentils", "greek_yogurt", "cabbage"],
+      "heavy_ingredients": ["pork_sausage", "butter", "white_potato", "white_bread", "heavy_cream", "bacon"],
+      "dishes": ["schnitzel", "bratwurst", "spaetzle", "sauerbraten", "kartoffelsalat", "rouladen", "kasespatzle"],
+      "cultures": ["german", "austrian", "bavarian", "swiss german", "pennsylvania dutch"]
+    },
+    "polish": {
+      "name": "Polish",
+      "region": "Eastern Europe",
+      "flavor": [0.1, 0.3, 0.6, 0.6, 0.6, 0.3],
+      "staples": ["barley", "cabbage", "mushrooms", "greek_yogurt", "buckwheat_soba", "turkey_ground"],
+      "heavy_ingredients": ["pork_sausage", "sour_cream", "butter", "white_potato", "all_purpose_flour", "bacon"],
+      "dishes": ["pierogi", "bigos", "golabki", "zurek", "kielbasa", "placki", "rosol"],
+      "cultures": ["polish", "polish-american", "slovak", "czech"]
+    },
+    "russian": {
+      "name": "Russian & Ukrainian",
+      "region": "Eastern Europe",
+      "flavor": [0.1, 0.4, 0.6, 0.6, 0.6, 0.3],
+      "staples": ["buckwheat_soba", "cabbage", "barley", "greek_yogurt", "mushrooms", "salmon"],
+      "heavy_ingredients": ["sour_cream", "mayonnaise", "butter", "white_potato", "pork_sausage", "white_bread"],
+      "dishes": ["borscht", "pelmeni", "beef stroganoff", "olivier salad", "blini", "varenyky", "chicken kiev", "syrniki"],
+      "cultures": ["russian", "ukrainian", "belarusian", "georgian", "slavic"]
+    },
+    "ashkenazi_jewish": {
+      "name": "Ashkenazi Jewish",
+      "region": "Diaspora",
+      "flavor": [0.1, 0.5, 0.6, 0.4, 0.6, 0.2],
+      "staples": ["chicken_breast", "barley", "salmon", "cabbage", "greek_yogurt", "whole_wheat_flour"],
+      "heavy_ingredients": ["schmaltz", "white_bread", "cream_cheese", "white_potato", "white_sugar", "beef_ribeye"],
+      "dishes": ["matzo ball soup", "latkes", "brisket", "kugel", "challah", "knish", "bagels and lox", "cholent"],
+      "cultures": ["jewish", "ashkenazi", "yiddish", "jewish-american"]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: heritage-kitchen-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: HK_MODEL
+        value: claude-opus-5-5
+      - key: HK_ALLOWED_ORIGINS
+        value: https://heritagekitchencabinets.com,https://www.heritagekitchencabinets.com
