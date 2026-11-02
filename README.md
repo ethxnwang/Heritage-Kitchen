@@ -117,20 +117,6 @@ Squarespace only hosts the front end, so the API runs somewhere else and the pag
 
 The widget's styles are scoped under `#hk-app`, so they won't clash with the site template.
 
-## Configuration
-
-| Variable | Default | Notes |
-| --- | --- | --- |
-| `ANTHROPIC_API_KEY` | — | Without it the API runs in offline mode. |
-| `HK_MODEL` | `claude-opus-5-5` | |
-| `HK_EFFORT` | `medium` | `low` / `medium` / `high` / `xhigh` / `max` |
-| `HK_MAX_TOKENS` | `16000` | |
-| `HK_USE_FALLBACKS` | `true` | Server-side refusal fallback (`fallbacks: "default"`). |
-| `HK_OFFLINE` | `false` | Force the local ranker. |
-| `HK_ALLOWED_ORIGINS` | site domain | Comma-separated. |
-| `HK_ALLOWED_ORIGIN_REGEX` | `*.squarespace.com` | |
-| `HK_RATE_LIMIT_PER_MINUTE` | `20` | Per IP, on the POST endpoints. `0` disables it. |
-
 ## Project layout
 
 ```
@@ -151,7 +137,5 @@ tests/
 ## Notes on the data
 
 Nutrient values are approximate per-100 g figures from USDA FoodData Central, rounded. They're meant for comparing one ingredient with another, not for tracking intake. Nothing here is medical advice.
-
-## License
 
 MIT
