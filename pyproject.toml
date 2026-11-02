@@ -32,3 +32,4 @@ heritage_kitchen = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
